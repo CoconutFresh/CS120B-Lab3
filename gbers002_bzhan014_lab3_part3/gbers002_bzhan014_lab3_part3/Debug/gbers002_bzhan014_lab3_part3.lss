@@ -133,49 +133,50 @@ int main(void)
     {
 			count = 0x00;
 			
-			if (PINA >= 13) {
+				if (PINA >= 13) {
   a8:	80 b1       	in	r24, 0x00	; 0
   aa:	8d 30       	cpi	r24, 0x0D	; 13
   ac:	08 f0       	brcs	.+2      	; 0xb0 <main+0x12>
-				PORTC = SetBit(PORTC, 5, 1);
-  ae:	45 9a       	sbi	0x08, 5	; 8
-			}	
-			if (PINA >= 10) {
+					PORTC = SetBit(PORTC, 0, 1);
+  ae:	40 9a       	sbi	0x08, 0	; 8
+				}
+				if (PINA >= 10) {
   b0:	80 b1       	in	r24, 0x00	; 0
   b2:	8a 30       	cpi	r24, 0x0A	; 10
   b4:	08 f0       	brcs	.+2      	; 0xb8 <main+0x1a>
-				PORTC = SetBit(PORTC, 4, 1);
-  b6:	44 9a       	sbi	0x08, 4	; 8
-			}
-			if (PINA >= 7) {
+					PORTC = SetBit(PORTC, 1, 1);
+  b6:	41 9a       	sbi	0x08, 1	; 8
+				}
+				if (PINA >= 7) {
   b8:	80 b1       	in	r24, 0x00	; 0
   ba:	87 30       	cpi	r24, 0x07	; 7
   bc:	08 f0       	brcs	.+2      	; 0xc0 <main+0x22>
-				PORTC = SetBit(PORTC, 3, 1);
-  be:	43 9a       	sbi	0x08, 3	; 8
-			}
-			if (PINA >= 5) {
+					PORTC = SetBit(PORTC, 2, 1);
+  be:	42 9a       	sbi	0x08, 2	; 8
+				}
+				if (PINA >= 5) {
   c0:	80 b1       	in	r24, 0x00	; 0
   c2:	85 30       	cpi	r24, 0x05	; 5
   c4:	08 f0       	brcs	.+2      	; 0xc8 <main+0x2a>
-				PORTC = SetBit(PORTC, 2, 1);
-  c6:	42 9a       	sbi	0x08, 2	; 8
-			}
-			if (PINA >= 3) {
+					PORTC = SetBit(PORTC, 3, 1);
+  c6:	43 9a       	sbi	0x08, 3	; 8
+				}
+				if (PINA >= 3) {
   c8:	80 b1       	in	r24, 0x00	; 0
   ca:	83 30       	cpi	r24, 0x03	; 3
   cc:	08 f0       	brcs	.+2      	; 0xd0 <main+0x32>
-				PORTC = SetBit(PORTC, 1, 1);
-  ce:	41 9a       	sbi	0x08, 1	; 8
-			}
-			if (PINA >= 1) {
+					PORTC = SetBit(PORTC, 4, 1);
+  ce:	44 9a       	sbi	0x08, 4	; 8
+				}
+				if (PINA >= 1) {
   d0:	80 b1       	in	r24, 0x00	; 0
   d2:	88 23       	and	r24, r24
   d4:	a9 f0       	breq	.+42     	; 0x100 <main+0x62>
-				PORTC = SetBit(PORTC, 0, 1);
-  d6:	40 9a       	sbi	0x08, 0	; 8
+					PORTC = SetBit(PORTC, 5, 1);
+  d6:	45 9a       	sbi	0x08, 5	; 8
   d8:	13 c0       	rjmp	.+38     	; 0x100 <main+0x62>
-			}
+				}
+			
 			
 			for (unsigned char i = 4; i < 7; i++) {
 				if (GetBit(PINA, i) == 0x01) {
@@ -192,10 +193,10 @@ int main(void)
   ec:	4f 5f       	subi	r20, 0xFF	; 255
   ee:	2f 5f       	subi	r18, 0xFF	; 255
   f0:	3f 4f       	sbci	r19, 0xFF	; 255
-			}
-			if (PINA >= 1) {
-				PORTC = SetBit(PORTC, 0, 1);
-			}
+				if (PINA >= 1) {
+					PORTC = SetBit(PORTC, 5, 1);
+				}
+			
 			
 			for (unsigned char i = 4; i < 7; i++) {
   f2:	27 30       	cpi	r18, 0x07	; 7

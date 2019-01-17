@@ -29,24 +29,25 @@ int main(void)
     {
 			count = 0x00;
 			
-			if (PINA >= 13) {
-				PORTC = SetBit(PORTC, 5, 1);
-			}	
-			if (PINA >= 10) {
-				PORTC = SetBit(PORTC, 4, 1);
-			}
-			if (PINA >= 7) {
-				PORTC = SetBit(PORTC, 3, 1);
-			}
-			if (PINA >= 5) {
-				PORTC = SetBit(PORTC, 2, 1);
-			}
-			if (PINA >= 3) {
-				PORTC = SetBit(PORTC, 1, 1);
-			}
-			if (PINA >= 1) {
-				PORTC = SetBit(PORTC, 0, 1);
-			}
+				if (PINA >= 13) {
+					PORTC = SetBit(PORTC, 0, 1);
+				}
+				if (PINA >= 10) {
+					PORTC = SetBit(PORTC, 1, 1);
+				}
+				if (PINA >= 7) {
+					PORTC = SetBit(PORTC, 2, 1);
+				}
+				if (PINA >= 5) {
+					PORTC = SetBit(PORTC, 3, 1);
+				}
+				if (PINA >= 3) {
+					PORTC = SetBit(PORTC, 4, 1);
+				}
+				if (PINA >= 1) {
+					PORTC = SetBit(PORTC, 5, 1);
+				}
+			
 			
 			for (unsigned char i = 4; i < 7; i++) {
 				if (GetBit(PINA, i) == 0x01) {
